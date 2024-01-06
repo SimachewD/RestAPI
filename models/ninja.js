@@ -19,5 +19,5 @@ const mongoose = require('mongoose');
     }
  });
 
- const NinjaModel = mongoose.model('Ninjas', NinjaSchema);
+ const NinjaModel = mongoose.model('Ninja', NinjaSchema);
  module.exports = NinjaModel;

@@ -5,13 +5,15 @@ const NinjaModel = require('../models/ninja');
 //get all the data
 //GET method
 router.get('/', (req, res)=>{
-    NinjaModel.create({name:'Abebe', rank:'black belt'});
+    res.send(req.method);
 });
 
 //add new data
 //POST method
-router.post('/', (req, res)=>{
-    res.send(req.method);
+router.post('/', (req, res, next)=>{
+    NinjaModel.create(req.body).then((ninjas)=>{
+        res.send(ninjas);
+    }).catch(next);
 });
 
 //update a particular data
