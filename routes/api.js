@@ -8,6 +8,7 @@ router.get('/ninjas', (req, res)=>{
     NinjaModel.find().then(ninjas=>{
     res.send(ninjas);
     });
+    
 });
 
 //add new data
@@ -16,7 +17,7 @@ router.post('/ninjas', (req, res, next)=>{
     NinjaModel.create(req.body).then((ninjas)=>{
         res.send(ninjas);
     }).catch(next);
-}); 
+});  
  
 //update specific data
 //PUT method

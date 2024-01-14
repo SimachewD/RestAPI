@@ -1,15 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./models/conn');
+const dotenv = require('dotenv');
+
+dotenv.config();//tested my patience
 
 //setup express app
-const app = express();
+const app = express(); 
 connectDB();
-
+ 
 //using body parser as a middleware
 app.use(bodyParser.json());
 
-// Enable CORS for all routes
+// Enable CORS for all routes 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -26,6 +29,6 @@ app.use((err, req, res, next)=>{
 }); 
 
 //listen to a request
-app.listen(process.env.port || 4000, ()=>{
-    console.log(`Listening to requests at 4000 or ${process.env.port}`);
+app.listen(process.env.PORT, ()=>{
+    console.log(`Listening to requests at ${process.env.PORT}`);
 });    
